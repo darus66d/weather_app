@@ -25,8 +25,35 @@ class SecondScreen extends StatelessWidget {
                 '19°',
                 style: GoogleFonts.poppins(
                   color: Colors.white,
+                  fontSize: 64,
+                  fontWeight: FontWeight.bold,
                 ),
+              ),
+              Text(
+                  "Precipitations\nMax: 24° Min: 18°",
+                textAlign: TextAlign.center,
+                style: GoogleFonts.poppins(
+                  color: Colors.white70,
+                  fontSize: 16
+                ),
+              ),
+              SizedBox(height: 20,),
+              Image.asset("assets/images/house.png",height:150),
+              Spacer(),
+              Container(
+                height: 100,
+                decoration: BoxDecoration(
+                  color: Colors.white.withOpacity(0.15),
+                  borderRadius:BorderRadius.circular(25),
+                ),
+                child: Row(
+
+                ),
+
               )
+
+
+
             ],
           ),
         ),
