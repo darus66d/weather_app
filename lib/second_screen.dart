@@ -39,21 +39,49 @@ class SecondScreen extends StatelessWidget {
               ),
               SizedBox(height: 20,),
               Image.asset("assets/images/house.png",height:150),
-              Spacer(),
+              SizedBox(height: 20,),
               Container(
                 height: 100,
                 decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.15),
+                  color: Colors.white.withValues(alpha: 0.5),
                   borderRadius:BorderRadius.circular(25),
-                ),
-                child: Row(
-
-                ),
-
+                ),child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Today",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      Text(
+                        "July, 21",
+                        style: TextStyle(
+                          color: Colors.white.withOpacity(0.95),
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 12,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      WeatherHourTile(time:'15:00',temp:'19°C'),
+                      WeatherHourTile(time:'16:00',temp:'19°C'),
+                      WeatherHourTile(time:'17:00',temp:'19°C'),
+                      WeatherHourTile(time:'18:00',temp:'19°C'),
+                    ],
+                  ),
+                ],
+              ),
               )
-
-
-
             ],
           ),
         ),
@@ -61,3 +89,25 @@ class SecondScreen extends StatelessWidget {
     );
   }
 }
+
+class WeatherHourTile extends StatelessWidget {
+  final String time;
+  final String temp;
+  const WeatherHourTile({super.key, required this.time, required this.temp});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Text(time,style: TextStyle(
+          color: Colors.white70,),),
+        Icon(Icons.cloud,color: Colors.white,),
+        Text(temp,style:
+          TextStyle(color: Colors.white),)
+      ],
+    );
+  }
+}
+
+
+
