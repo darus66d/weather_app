@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:weather_app/theme.dart';
+import 'package:weather_app/data/theme.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
