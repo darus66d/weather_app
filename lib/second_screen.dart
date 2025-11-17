@@ -1,112 +1,114 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:weather_app/data/theme.dart';
+import 'package:weather_app/data/app_text_style.dart';
+import 'package:weather_app/widgets/app_decoration.dart';
+import 'data/app_text.dart';
 
 class SecondScreen extends StatelessWidget {
-  const SecondScreen({super.key});
+   SecondScreen({super.key});
+  
+  final List<Map<String,String>> forecast = [
+    {"temp": "19°C","icon": "assets/images/sun_rain.png","time": "15:00"},
+    {"temp": "18°C","icon": "Moon cloud mid rain,png","time": "15:00"},
+    {"temp": "18°C","icon": "","time": "15:00"},
+    {"temp": "18°C","icon": "","time": "15:00"}
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
-          gradient: kPrimaryGradient
-        ) ,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 20,
-            vertical: 60,
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [Color(0xff3d2c8e), Color(0xff533595), Color(0xff9d52ac)],
           ),
-          child: Column(
-            children: [
-              Image.asset("assets/images/image1.png",height: 100,),
-              SizedBox(height: 10,),
-              Text(
-                '19°',
-                style: GoogleFonts.poppins(
-                  color: Colors.white,
-                  fontSize: 64,
-                  fontWeight: FontWeight.bold,
+        ),
+        child: Column(
+          children: [
+            Container(
+              width: 244,
+              height: 244,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage("assets/images/image1.png"),
+                  fit: BoxFit.cover,
                 ),
               ),
-              Text(
-                  "Precipitations\nMax: 24° Min: 18°",
-                textAlign: TextAlign.center,
-                style: GoogleFonts.poppins(
-                  color: Colors.white70,
-                  fontSize: 16
-                ),
+            ),
+            SizedBox(height: 4,),
+            Text(
+              AppText.deg,
+              style: AppTextstyle.textStyle64WhiteW500,
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(height: 52,),
+            Text(
+              AppText.precipitation,
+              style: AppTextstyle.textStyle24WhiteW400,
+              textAlign: TextAlign.center,
+            ),
+            Container(
+              width: 336,
+              height: 198,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage("assets/images/home.png"),
+                  fit: BoxFit.fill,
+                )
               ),
-              SizedBox(height: 20,),
-              Image.asset("assets/images/house.png",height:150),
-              SizedBox(height: 20,),
-              Container(
-                height: 100,
-                decoration: BoxDecoration(
-                  color: Colors.white.withValues(alpha: 0.5),
-                  borderRadius:BorderRadius.circular(25),
-                ),child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+            ),
+            Container(
+              width: 428,
+              height: 246,
+              decoration: AppDecoration.gradientBox,
+              padding: EdgeInsets.all(16),
+              child:Column(
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
-                        "Today",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                      Text(
-                        "July, 21",
-                        style: TextStyle(
-                          color: Colors.white.withOpacity(0.95),
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
+                      Text("Today",style: AppTextstyle.textStyle20WhiteW600,),
+                      Text("July, 21",style: AppTextstyle.textStyle20WhiteW600,),
                     ],
                   ),
-                  SizedBox(height: 12,),
+                  SizedBox(height: 20,),
+                  //Divider Line
+                  Container(
+                    width: 428,
+                    height: 0,
+                    decoration: ShapeDecoration(
+                        shape: RoundedRectangleBorder(
+                          side: BorderSide(
+                            width: 2,
+                            color: Color(0xFF8D78C7),
+                            strokeAlign:BorderSide.strokeAlignOutside,
+                          )
+                        )),
+                  ),
+                  SizedBox(height: 20,),
+                  //ForeCast Row
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      WeatherHourTile(time:'15:00',temp:'19°C'),
-                      WeatherHourTile(time:'16:00',temp:'19°C'),
-                      WeatherHourTile(time:'17:00',temp:'19°C'),
-                      WeatherHourTile(time:'18:00',temp:'19°C'),
-                    ],
-                  ),
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: forecast.map((item){
+                      return Column(
+                        children: [
+                        Text(item["temp"]!,style: AppTextstyle.textStyle20WhiteW600,),
+                        SizedBox(height: 8,),
+                          Image.asset(item["icon"]!,height: 40,),
+                          SizedBox(height: 8,),
+                          Text(item["time"]!,style: AppTextstyle.textStyle20WhiteW600,)
+                        ]
+                      );
+                    }).toList(),
+                  )
+
                 ],
               ),
-              )
-            ],
-          ),
+            )
+          ],
         ),
       ),
     );
   }
 }
-
-class WeatherHourTile extends StatelessWidget {
-  final String time;
-  final String temp;
-  const WeatherHourTile({super.key, required this.time, required this.temp});
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Text(time,style: TextStyle(
-          color: Colors.white70,),),
-        Icon(Icons.cloud,color: Colors.white,),
-        Text(temp,style:
-          TextStyle(color: Colors.white),)
-      ],
-    );
-  }
-}
-
-
