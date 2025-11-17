@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/final_page.dart';
 import 'package:weather_app/home_screen.dart';
 import 'package:weather_app/second_screen.dart';
 
@@ -13,9 +14,9 @@ class WeatherApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+      home:HomeScreen(),
       routes: {
-        "/home":(context)=>SecondScreen(),
+        "/home":(context)=>FinalPage(),
       },
     );
   }

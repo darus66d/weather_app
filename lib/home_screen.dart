@@ -50,7 +50,6 @@ class HomeScreen extends StatelessWidget {
                     color: Color(0xFFDDB130),
                     title: "Get start",
 
-
                     textStyle: TextStyle(
                       color: Color(0xFF362A84),
                       fontSize: 28,

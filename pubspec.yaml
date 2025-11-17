@@ -67,9 +67,10 @@ flutter:
   assets:
      - assets/images/house.png
      - assets/images/image1.png
-     - assets/images/Moon cloud mid rain.png
+     - assets/images/Moon_cloud_mid_rain.png
      - assets/images/sun_rain.png
      - assets/images/crosshairs.png
+     - assets/images/star 1.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

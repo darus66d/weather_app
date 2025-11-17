@@ -15,12 +15,12 @@ class _SevenDaysForecastState extends State<SevenDaysForecast> {
   int currentPage = 0;
   final List<Map<String,dynamic>> forecast =[
     {"day":"Mon","temp":"19°C","icon":"assets/images/sun_rain.png","c1":0xff3d2c8e,"c2":0xff533595,"c3":0xff9d52ac},
-    {"day":"Tue","temp":"19°C","icon":"assets/images/Moon cloud mid rain.png","c1":0xff3d2c8e,"c2":0xff533595,"c3":null},
-    {"day":"Wed","temp":"19°C","icon":"assets/images/Moon cloud mid rain.png","c1":0xff3d2c8e,"c2":0xff533595,"c3":null},
+    {"day":"Tue","temp":"19°C","icon":"assets/images/Moon_cloud_mid_rain.png","c1":0xff3d2c8e,"c2":0xff533595,"c3":null},
+    {"day":"Wed","temp":"19°C","icon":"assets/images/Moon_cloud_mid_rain.png","c1":0xff3d2c8e,"c2":0xff533595,"c3":null},
     {"day":"Thu","temp":"19°C","icon":"assets/images/sun_rain.png","c1":0xff3d2c8e,"c2":0xff533595,"c3":null},
     {"day":"Fri","temp":"19°C","icon":"assets/images/sun_rain.png","c1":0xff3d2c8e,"c2":0xff533595,"c3":null},
-    {"day":"Sat","temp":"19°C","icon":"assets/images/Moon cloud mid rain.png","c1":0xff3d2c8e,"c2":0xff533595,"c3":null},
-    {"day":"Sun","temp":"19°C","icon":"assets/images/Moon cloud mid rain.png","c1":0xff3d2c8e,"c2":0xff533595,"c3":null},
+    {"day":"Sat","temp":"19°C","icon":"assets/images/Moon_cloud_mid_rain.png","c1":0xff3d2c8e,"c2":0xff533595,"c3":null},
+    {"day":"Sun","temp":"19°C","icon":"assets/images/Moon_cloud_mid_rain.png","c1":0xff3d2c8e,"c2":0xff533595,"c3":null},
   ];
   void _prev(){
     if(currentPage >0){

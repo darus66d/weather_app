@@ -8,4 +8,6 @@ class AppText{
   static const String today = "Today";
   static const String july = "July, 21";
   static const String sun = "SUNRISE";
+  static const String uv = "UV INDEX";
+
 }
