@@ -14,7 +14,7 @@ class _SevenDaysForecastState extends State<SevenDaysForecast> {
   final PageController _pageController = PageController(viewportFraction: 1/4);
   int currentPage = 0;
   final List<Map<String,dynamic>> forecast =[
-    {"day":"Mon","temp":"19°C","icon":"assets/images/sun_rain.png","c1":0xff3d2c8e,"c2":0xff533595,"c3":0xff9d52ac},
+    {"day":"Mon","temp":"19°C","icon":"assets/images/sun_rain.png","c1":0xff3d2c8e,"c2":0xff533595,"c3":null},
     {"day":"Tue","temp":"19°C","icon":"assets/images/Moon_cloud_mid_rain.png","c1":0xff3d2c8e,"c2":0xff533595,"c3":null},
     {"day":"Wed","temp":"19°C","icon":"assets/images/Moon_cloud_mid_rain.png","c1":0xff3d2c8e,"c2":0xff533595,"c3":null},
     {"day":"Thu","temp":"19°C","icon":"assets/images/sun_rain.png","c1":0xff3d2c8e,"c2":0xff533595,"c3":null},

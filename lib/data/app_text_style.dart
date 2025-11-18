@@ -9,7 +9,7 @@ class AppTextstyle{
     fontWeight: FontWeight.w500,
   );
   static TextStyle textStyle12whiteW500 = GoogleFonts.inter(
-    fontSize: 14,
+    fontSize: 30,
     color: Colors.white,
     fontWeight: FontWeight.w500,
   );
@@ -51,7 +51,7 @@ class AppTextstyle{
     letterSpacing: 0.47
   );
    static TextStyle textStyle24WhiteW400 = GoogleFonts.poppins(
-    fontSize: 24,
+    fontSize: 18,
     color: Color(0xffffffff),
     fontWeight: FontWeight.w400,
      height: 1.24,

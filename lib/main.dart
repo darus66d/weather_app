@@ -15,9 +15,9 @@ class WeatherApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home:HomeScreen(),
-      routes: {
-        "/home":(context)=>FinalPage(),
-      },
+      // routes: {
+      //   "/home":(context)=>FinalPage(),
+      // },
     );
   }
 }
