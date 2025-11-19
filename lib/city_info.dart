@@ -48,78 +48,90 @@ class _CityInfoState extends State<CityInfo> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Weather Info"),
+        backgroundColor: Colors.deepPurpleAccent,
       ),
       body: Padding(
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            TextField(
-              controller: _cityController,
-              decoration: InputDecoration(
-                hintText: "Enter city name",
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                suffixIcon: IconButton(
-                  icon: const Icon(Icons.search),
-                  onPressed: () {
-                    if (_cityController.text.isNotEmpty) {
-                      fetchWeather(_cityController.text.trim());
-                    }
-                  },
+        padding: const EdgeInsets.all(10),
+        child: Container(
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [Color(0xff3d2c8e), Color(0xff533595), Color(0xff9d52ac)],
+            ),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [SizedBox(height: 2,width: 0,),
+              TextField(
+                controller: _cityController,
+                decoration: InputDecoration(
+                  hintText: "Enter city name",
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  suffixIcon: IconButton(
+                    icon: const Icon(Icons.search),
+                    onPressed: () {
+                      if (_cityController.text.isNotEmpty) {
+                        fetchWeather(_cityController.text.trim());
+                      }
+                    },
+                  ),
                 ),
               ),
-            ),
 
-            const SizedBox(height: 20),
+              const SizedBox(height: 20),
 
-            loading
-                ? const CircularProgressIndicator()
-                : weatherData == null
-                ? const Text(
-              "Search any city to see weather",
-              style: TextStyle(fontSize: 18),
-            )
-                : Column(
-              children: [
-                Text(
-                  "${weatherData!["name"]}",
-                  style: const TextStyle(
-                    fontSize: 32,
-                    fontWeight: FontWeight.bold,
+              loading
+                  ? const CircularProgressIndicator()
+                  : weatherData == null
+                  ? const Text(
+                "Search any city to see weather",
+                style: TextStyle(fontSize: 18),
+              )
+                  : Column(
+                children: [
+                  Text(
+                    "${weatherData!["name"]}",
+                    style: const TextStyle(
+                      fontSize: 32,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
 
-                const SizedBox(height: 10),
+                  const SizedBox(height: 10),
 
-                Text(
-                  "${weatherData!["main"]["temp"]}°C",
-                  style: const TextStyle(
-                    fontSize: 48,
-                    fontWeight: FontWeight.bold,
+                  Text(
+                    "${weatherData!["main"]["temp"]}°C",
+                    style: const TextStyle(
+                      fontSize: 48,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
 
-                const SizedBox(height: 10),
+                  const SizedBox(height: 10),
 
-                Image.network(
-                  "https://openweathermap.org/img/wn/${weatherData!["weather"][0]["icon"]}@2x.png",
-                  height: 100,
-                ),
-
-                const SizedBox(height: 10),
-
-                Text(
-                  weatherData!["weather"][0]["description"],
-                  style: const TextStyle(
-                    fontSize: 22,
-                    fontWeight: FontWeight.w500,
+                  Image.network(
+                    "https://openweathermap.org/img/wn/${weatherData!["weather"][0]["icon"]}@2x.png",
+                    height: 100,
                   ),
-                ),
-              ],
-            )
-          ],
+
+                  const SizedBox(height: 10),
+
+                  Text(
+                    weatherData!["weather"][0]["description"],
+                    style: const TextStyle(
+                      fontSize: 22,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );

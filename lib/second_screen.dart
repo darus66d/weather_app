@@ -294,7 +294,11 @@ class _SecondScreenState extends State<SecondScreen> {
                   MaterialPageRoute(builder: (context) => CityInfo()),
                 );
               },
-              child: Icon(Icons.search,color: Colors.black,fill: 0.5,opticalSize: 20,),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.grey,
+                padding: EdgeInsets.symmetric(vertical: 5,horizontal: 5),
+              ),
+              child: Icon(Icons.search),
             ),
           ),
           Positioned(
@@ -305,20 +309,29 @@ class _SecondScreenState extends State<SecondScreen> {
                   context,
                   MaterialPageRoute(builder: (context) => CityInfo()),
                 );
-              },
+              },style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.grey,
+              padding: EdgeInsets.symmetric(horizontal: 5,vertical: 5),
+            ),
               child: Icon(Icons.settings),
             ),
           ),Positioned(
             bottom:20,
             right: 20,
-            child: ElevatedButton(
+            child: ElevatedButton.icon(
               onPressed: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => FinalPage()),
                 );
               },
-              child: Icon(Icons.arrow_forward),
+              label: Text("7-Days ForeCast"),
+              icon: Icon(Icons.arrow_right_alt),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.greenAccent,
+                padding: EdgeInsets.symmetric(vertical: 5,horizontal: 35)
+              ),
+              // child: Icon(Icons.arrow_forward),
             ),
           ),
           if (loading)
