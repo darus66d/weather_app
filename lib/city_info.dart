@@ -2,8 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-import 'data/theme.dart';
-// import 'package:weather_app/data/theme.dart';
+
 
 class CityInfo extends StatefulWidget {
   const CityInfo({super.key});
