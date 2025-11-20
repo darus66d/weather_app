@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'dart:math';
 
 class SevenDaysForecast extends StatefulWidget {
-  final List<dynamic>? data; // ← API থেকে আসবে
+  final List<dynamic>? data;
 
   const SevenDaysForecast({super.key, this.data});
 

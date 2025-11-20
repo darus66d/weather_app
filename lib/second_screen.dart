@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:http/http.dart' as http;
 import 'package:weather_app/city_info.dart';
+import 'package:weather_app/dark_mode_page.dart';
 import 'package:weather_app/data/app_text_style.dart';
 import 'package:weather_app/final_page.dart';
 import 'package:weather_app/widgets/app_decoration.dart';
@@ -161,7 +162,8 @@ class _SecondScreenState extends State<SecondScreen> {
                   ),
                   SizedBox(height: 16),
                   Text(
-                    weatherData != null ? 'Precipitation: ${weatherData!['precipitation']} mm, Humidity: ${weatherData!['humidity']}%' : AppText.precipitation,
+                    weatherData != null ? 'Precipitation: ${weatherData!['precipitation']} mm,'
+                        ' Humidity: ${weatherData!['humidity']}%' : AppText.precipitation,
                     style: AppTextstyle.textStyle24WhiteW400,
                     textAlign: TextAlign.center,
                   ),
@@ -295,7 +297,7 @@ class _SecondScreenState extends State<SecondScreen> {
                 );
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.grey,
+                backgroundColor: Colors.blueAccent,
                 padding: EdgeInsets.symmetric(vertical: 5,horizontal: 5),
               ),
               child: Icon(Icons.search),
@@ -307,7 +309,7 @@ class _SecondScreenState extends State<SecondScreen> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => CityInfo()),
+                  MaterialPageRoute(builder: (context) => DarkModePage()),
                 );
               },style: ElevatedButton.styleFrom(
               backgroundColor: Colors.grey,

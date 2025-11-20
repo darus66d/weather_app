@@ -43,7 +43,7 @@ class _FinalPageState extends State<FinalPage> {
         http.get(Uri.parse(
             "https://api.openweathermap.org/data/2.5/weather?lat=$lat&lon=$lon&units=metric&appid=$apiKey")),
         http.get(Uri.parse(
-            "https://api.openweathermap.org/data/3.0/onecall?lat=$lat&lon=$lon&exclude=minutely,hourly,alerts&units=metric&appid=$apiKey")),
+            "https://api.openweathermap.org/data/3.0/onecall?lat=33.44&lon=-94.04&exclude=hourly,daily&appid={API key}")),
         http.get(Uri.parse(
             "http://api.openweathermap.org/data/2.5/air_pollution?lat=$lat&lon=$lon&appid=$apiKey")),
       ]);
@@ -68,7 +68,7 @@ class _FinalPageState extends State<FinalPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Current Location and 7 Days forecast"),
+        title: Text("Current Location & 7-Days forecast",style: TextStyle(color: Colors.white),),
         backgroundColor: Colors.deepPurpleAccent,
       ),
       body: loading
