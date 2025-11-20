@@ -6,6 +6,7 @@ import 'package:weather_app/widgets/seven_days_forecast.dart';
 import 'package:weather_app/data/app_text_style.dart';
 import 'data/app_text.dart';
 
+
 class FinalPage extends StatefulWidget {
   const FinalPage({super.key});
 

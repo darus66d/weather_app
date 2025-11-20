@@ -1,7 +1,9 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:weather_app/data/theme.dart';
+
+import 'data/theme.dart';
+// import 'package:weather_app/data/theme.dart';
 
 class CityInfo extends StatefulWidget {
   const CityInfo({super.key});
@@ -68,16 +70,14 @@ class _CityInfoState extends State<CityInfo> {
       body: Padding(
         padding: const EdgeInsets.all(10),
         child: Container(
-          height: MediaQuery
-              .of(context)
-              .size
-              .height,
-          width: MediaQuery
-              .of(context)
-              .size
-              .width,
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
           decoration: BoxDecoration(
-              gradient: kPrimaryGradient
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [Color(0x8A2A604B), Color(0xffccc5da), Color(0xff9d52ac)],
+            ),
           ),
           child: Column(
             children: [
@@ -102,10 +102,7 @@ class _CityInfoState extends State<CityInfo> {
               ),
               const SizedBox(height: 20),
               // Center(child: bodyContent()),
-              loading
-                  ? const CircularProgressIndicator()
-                  : weatherData == null
-                  ? const Text(
+              loading ? const CircularProgressIndicator() : weatherData == null ? const Text(
                 "Search any city to see weather",
                 style: TextStyle(fontSize: 18),
               )
@@ -115,6 +112,11 @@ class _CityInfoState extends State<CityInfo> {
                     "${weatherData!["name"]} - ${weatherData!["main"]["temp"]}°C",
                     style: const TextStyle(
                         fontSize: 22, fontWeight: FontWeight.bold),
+                  ),
+                  Image.network(
+                    "https://openweathermap.org/img/wn/${weatherData!["weather"][0]["icon"]}@2x.png",
+                      height: 100,
+                      color: Colors.white
                   ),
                 ],
               ),
